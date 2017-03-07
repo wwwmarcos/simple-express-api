@@ -1,1 +1,1 @@
-# -escola-de-ti-person-api
+# escola-de-ti-person-api
