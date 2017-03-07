@@ -6,7 +6,7 @@ const personRoutes = require('./modules/person/person.routes')
 const database = require('./modules/config/db/db.config')
 const config = require('./modules/config/config.json')
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
-});
+})
 
 app.use('/person', personRoutes)
 
