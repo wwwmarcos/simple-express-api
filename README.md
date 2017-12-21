@@ -1,5 +1,3 @@
-# escola-de-ti-person-api
+# simple-express-api
 
-[https://escola-de-ti.herokuapp.com/](https://escola-de-ti.herokuapp.com/)
-
-Simple API to use in [examples](https://github.com/marcosflorencio/escola-de-ti-angular)
+Simple API used [here](https://github.com/marcosflorencio/escola-de-ti-angular)
