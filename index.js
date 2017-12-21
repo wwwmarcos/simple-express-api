@@ -1,10 +1,14 @@
 const bodyParser = require('body-parser')
-const http = require('http')
 const express = require('express')
-const app = express()
+const cors = require('cors')
+
 const personRoutes = require('./modules/person/person.routes')
 const database = require('./modules/config/db/db.config')
 const config = require('./modules/config/config.json')
+
+const app = express()
+
+const APP_PORT = process.env.PORT || config.PORT
 
 app.use(bodyParser.json())
 
@@ -12,18 +16,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-})
+database.open()
+
+app.use(cors())
 
 app.use('/person', personRoutes)
 
-app.set('port', (process.env.PORT || config.PORT))
-
-app.listen(app.get('port'), function() {
-  console.log('running on port', app.get('port'))
+app.listen(APP_PORT, function () {
+  console.log('running on port', APP_PORT)
 })

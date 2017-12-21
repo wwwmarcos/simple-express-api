@@ -1,6 +1,6 @@
 const express = require('express')
 const controller = require('./person.controller')
-let personRoutes = express.Router()
+const personRoutes = express.Router()
 
 personRoutes.post('/create', controller.create)
 personRoutes.get('/list', controller.list)

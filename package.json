@@ -5,11 +5,10 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "body-parser": "~1.13.1",
-    "bson": "~0.4.6",
-    "express": "^4.14.0",
-    "mongoose": "^4.7.0",
-    "node-gyp": "~2.0.1"
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

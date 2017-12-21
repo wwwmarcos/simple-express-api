@@ -1,9 +1,9 @@
-let Person = require('./person')
+const Person = require('./person')
 
-function create(request, response) {
-  let person = new Person({
+function create (request, response) {
+  const person = new Person({
     name: request.body.name,
-    secondName: request.body.secondName,
+    secondName: request.body.secondName
   })
 
   person
@@ -12,34 +12,34 @@ function create(request, response) {
     .catch(err => response.status(500).json(err))
 }
 
-function list(request, response) {
+function list (request, response) {
   Person
     .find()
     .then(data => response.status(200).json(data))
     .catch(err => response.status(500).json(err))
 }
 
-function edit(request, response) {
+function edit (request, response) {
   Person.findByIdAndUpdate(request.body._id, {
-      name: request.body.name,
-      secondName: request.body.secondName,
-    })
+    name: request.body.name,
+    secondName: request.body.secondName
+  })
     .then(data => response.status(200).json(data))
     .catch(err => response.status(500).json(err))
 }
 
-function findOne(request, response) {
+function findOne (request, response) {
   Person.findOne({
-      _id: request.params.id
-    })
+    _id: request.params.id
+  })
     .then(data => response.status(200).json(data))
     .catch(err => response.status(500).json(err))
 }
 
-function remove(request, response) {
+function remove (request, response) {
   Person.findOneAndRemove({
-      _id: request.params.id
-    })
+    _id: request.params.id
+  })
     .then(data => response.status(200).json(data))
     .catch(err => response.status(500).json(err))
 }
